@@ -16,13 +16,55 @@
                   BackgroundColor = "Orange"/>
 
         <!-- Setting up textfield -->
-        <Entry Placeholder="Enter task"
+          <Entry Placeholder="Enter task"
                Grid.Row="1"/>
 
         <!-- Setting up add button -->
-        <Button Text="Add"
+         <Button Text="Add"
                 Grid.Row="1"
                 Grid.Column="1"/>
+
+        <!-- Setting up the collection view to hold a list of all to do items -->
+         <CollectionView Grid.Row="2"
+                   Grid.ColumnSpan="2">
+             <!-- Setting up the items in the collection view -->
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Apples</x:String>
+                        <x:String>Bananas</x:String>
+                        <x:String>Oranges</x:String>
+                    </x:Array>
+
+                </CollectionView.ItemsSource>
+             <!-- Setting up the collection view layout and design-->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Adding the grid in a swipe view enables the swiping of row items-->
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Delete"
+                                               BackgroundColor="Red"/>
+                                </SwipeItems>
+
+                            </SwipeView.RightItems>
+
+                           <Grid Padding="0,5">
+                            <Frame>
+                                <Label Text="{Binding .}"
+                                        FontSize="24"/>
+                            </Frame>
+
+                        </Grid>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+        <!-- Collection view creation ends here -->
+         </CollectionView>
+                    
     </Grid>
 
 </ContentPage>
