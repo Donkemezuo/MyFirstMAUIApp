@@ -24,7 +24,7 @@
 
         <!-- Setting up add button -->
          <Button Text="Add"
-                 Command="{Binding addCommand}"
+                 Command="{Binding AddCommand}"
                 Grid.Row="1"
                 Grid.Column="1"/>
 
@@ -40,7 +40,9 @@
                             <SwipeView.RightItems>
                                 <SwipeItems>
                                     <SwipeItem Text="Delete"
-                                               BackgroundColor="Red"/>
+                                               BackgroundColor="Red"
+                                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path=DeleteCommand}"
+                                               CommandParameter="{Binding .}"/>
                                 </SwipeItems>
 
                             </SwipeView.RightItems>

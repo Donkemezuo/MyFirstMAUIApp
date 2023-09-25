@@ -25,7 +25,7 @@ namespace MyFirstMAUIApp.ViewModel;
 
     [RelayCommand]
     // Creating a method - add an item 
-    void add() {
+    void Add() {
 
         /// Checking to see if the string is empty
         if (string.IsNullOrWhiteSpace(Text))
@@ -37,23 +37,15 @@ namespace MyFirstMAUIApp.ViewModel;
         // setting the string to empty;
         Text = string.Empty;
     }
-    
 
+    [RelayCommand]
+    //Creating the delete function
+    void Delete(string item) {
 
-    //// A getter and setter to update changes 
-    //public string Text {
-    //	get => text;
-    //	set {
-    //		text = value;
-    //		OnPropertyChanged(nameof(Text));
-    //			}
-
-    //}
-    //// This will notifify .NET MAUI when we want to update the interface 
-    //public event PropertyChangedEventHandler PropertyChanged;
-
-    //void OnPropertyChanged(string name) =>
-    //	PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
+        // checking to see if the list is empty
+        if (Items.Contains(item)) {
+            Items.Remove(item);
+        }
+    }
 }
 
