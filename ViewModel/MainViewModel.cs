@@ -41,11 +41,17 @@ namespace MyFirstMAUIApp.ViewModel;
     [RelayCommand]
     //Creating the delete function
     void Delete(string item) {
-
-        // checking to see if the list is empty
+        // checking to see if the list contains the item 
         if (Items.Contains(item)) {
             Items.Remove(item);
         }
+    }
+
+
+    [RelayCommand]
+    // Tap action - navigating to the details view
+    async Task Tap(string selectedItem) {
+        await Shell.Current.GoToAsync(nameof(DetailsPage));
     }
 }
 
